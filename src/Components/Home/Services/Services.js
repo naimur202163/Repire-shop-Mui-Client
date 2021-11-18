@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
-
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 const Services = () => {
     const [products, setProducts] = useState([]);
 
@@ -20,6 +24,36 @@ const Services = () => {
                     <Typography sx={{ textAlign: "center", mt: 2 }} variant="subtitle1">There are many variations of passages of Lorem electronics repair, but the<br /> majority have suffered alteration in azer duskam</Typography>
                 </Box>
                 <Box>
+
+                    <Grid sx={{ alignContent: 'center', justifyContent: 'center' }} container spacing={2}>
+                        {
+                            products?.map(product => <Grid md={4} xs={12}>
+                                <Card sx={{ maxWidth: '90%', my: 2, ml: 6 }}>
+                                    <CardMedia
+                                        component="img"
+                                        alt="green iguana"
+                                        height="90%"
+                                        image={product.img1}
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {product.name}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {product.discription1.slice(0, 120)}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small">Share</Button>
+                                        <Button size="small">Learn More</Button>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                            )
+                        }
+
+                    </Grid>
+
 
                 </Box>
             </Container >
