@@ -28,17 +28,17 @@ const Header = () => {
                         News
                     </Typography>
 
-                    <NavLink  style={{ textDecoration: 'none', color: 'white' }} to="/home">
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/home">
                         <Button color="inherit">Home</Button>
                     </NavLink>
-                    <NavLink  style={{ textDecoration: 'none', color: 'white' }} to="/about">
-                        <Button color="inherit">About</Button>
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/order">
+                        <Button color="inherit">Orders</Button>
                     </NavLink>
-                    <NavLink  style={{ textDecoration: 'none', color: 'white' }} to="/dashbord">
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashbord">
                         <Button color="inherit">Dashbord</Button>
 
                     </NavLink>
-                    <NavLink  style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
                         <Button color="inherit">Login</Button>
 
                     </NavLink>

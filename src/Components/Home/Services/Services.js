@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { Container, Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
@@ -7,12 +7,17 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 const Services = () => {
     const [products, setProducts] = useState([]);
 
-    fetch('http://localhost:5000/products')
-        .then(res => res.json())
-        .then(data => setProducts(data));
+
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, [])
+
     // Geting Data From Server
     return (
         <Box style={{ backgroundColor: '#F6F8FF ' }}>
@@ -45,7 +50,9 @@ const Services = () => {
                                     </CardContent>
                                     <CardActions>
                                         <Button size="small">Share</Button>
-                                        <Button size="small">Learn More</Button>
+                                        <Link style={{ textDecoration: 'none' }} to={`/order/${product._id}`}>
+                                            <Button size="small">Learn More</Button>
+                                        </Link>
                                     </CardActions>
                                 </Card>
                             </Grid>
