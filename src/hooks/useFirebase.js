@@ -1,7 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from 'react';
 import initializeAuthinticatione from './../Components/Login/Firebase/firebase.initialize';
-
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 
 initializeAuthinticatione()
@@ -25,12 +25,12 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    const loginUser = (email, password, location, history) => {
+    const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
-                history.replace(destination);
+                navigate(destination);
                 setAuthError('');
             })
             .catch((error) => {

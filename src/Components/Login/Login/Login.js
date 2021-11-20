@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 import { Box, Container, Grid, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import { Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
-
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { user, loginUser, isLoading, authError } = useAuth()
 
-
-
+    const location = useLocation()
+    const navigate = useNavigate();
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -18,7 +17,7 @@ const Login = () => {
         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
     }
     return (
