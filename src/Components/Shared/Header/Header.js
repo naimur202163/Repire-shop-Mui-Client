@@ -6,12 +6,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { red } from '@mui/material/colors';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const { user, logOut } = useAuth()
+    const { user, logout } = useAuth()
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -43,7 +42,7 @@ const Header = () => {
                     {
                         user?.email ?
                             <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                                <Button onClick={logOut} color="inherit">LogOut</Button>
+                                <Button onClick={logout} color="inherit">LogOut</Button>
 
                             </NavLink>
                             :
