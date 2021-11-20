@@ -8,9 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { red } from '@mui/material/colors';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const color = red[500];
+    const { user, logOut } = useAuth()
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -38,10 +39,20 @@ const Header = () => {
                         <Button color="inherit">Dashbord</Button>
 
                     </NavLink>
-                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                        <Button color="inherit">Login</Button>
 
-                    </NavLink>
+                    {
+                        user?.email ?
+                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                <Button onClick={logOut} color="inherit">LogOut</Button>
+
+                            </NavLink>
+                            :
+                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                <Button color="inherit">Login</Button>
+
+                            </NavLink>
+                    }
+
                 </Toolbar>
             </AppBar>
         </Box >

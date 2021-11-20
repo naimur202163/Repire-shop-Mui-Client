@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Container, Grid, TextField, Typography, CircularProgress, Alert } from '@mui/material';
+import { Box, Container, Grid, TextField, Typography, Alert, CircularProgress } from '@mui/material';
 import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import useFirebase from './../../../hooks/useFirebase';
 import useAuth from './../../../hooks/useAuth';
 
-const Login = () => {
+
+
+const Registar = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError } = useAuth()
 
-
+    const { user, registerUser, isLoading, authError } = useAuth()
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -18,7 +20,11 @@ const Login = () => {
         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password);
+        if (loginData.password !== loginData.password2) {
+            alert('Your password did not match');
+            return
+        }
+        registerUser(loginData.email, loginData.password);
         e.preventDefault();
     }
     return (
@@ -26,14 +32,14 @@ const Login = () => {
             <Container sx={{ my: 5 }}>
                 <Grid container spacing={2}>
                     <Grid item md={6} xs={12}>
-                        <Typography sx={{ ml: '34%' }} variant="body1" gutterBottom>Login</Typography>
-
-                        <form onSubmit={handleLoginSubmit}>
+                        <Typography variant="body1" gutterBottom>Register</Typography>
+                        {!isLoading && <form onSubmit={handleLoginSubmit}>
                             <TextField
                                 sx={{ width: '75%', m: 1 }}
                                 id="standard-basic"
                                 label="Your Email"
                                 name="email"
+                                type="email"
                                 onChange={handleOnChange}
                                 variant="standard" />
                             <TextField
@@ -44,19 +50,25 @@ const Login = () => {
                                 name="password"
                                 onChange={handleOnChange}
                                 variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="ReType Your Password"
+                                type="password"
+                                name="password2"
+                                onChange={handleOnChange}
+                                variant="standard" />
 
-                            <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
+                            <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
                             <NavLink
                                 style={{ textDecoration: 'none' }}
-                                to="/register">
-                                <Button variant="text">New User? Please Register</Button>
+                                to="/login">
+                                <Button variant="text">Already Registered? Please Login</Button>
                             </NavLink>
-                            {isLoading && <CircularProgress />}
-                            {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                            {authError && <Alert severity="error">{authError}</Alert>}
-                        </form>
-
-
+                        </form>}
+                        {isLoading && <CircularProgress />}
+                        {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                        {authError && <Alert severity="error">{authError}</Alert>}
                     </Grid>
                     <Grid item md={6} xs={12}>
                         <Box>
@@ -70,4 +82,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Registar;
