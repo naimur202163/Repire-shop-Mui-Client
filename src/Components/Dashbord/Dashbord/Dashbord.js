@@ -15,6 +15,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Link, NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -33,13 +35,24 @@ function Dashbord(props) {
             <List>
 
                 <ListItem>
-                    <ListItemIcon>  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>Inbox</Typography>
+                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}><Button color="inherit">Make Admin</Button></NavLink></Typography>
                 </ListItem>
+                {/* <ListItem>
+                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}><Button color="inherit">Add Products</Button></NavLink></Typography>
+                </ListItem> */}
 
-                <ListItem>
-                    <ListItemIcon>  <InboxIcon></InboxIcon></ListItemIcon><Typography sx={{ ml: 1 }}>Make An Admin</Typography>
-                </ListItem>
 
+
+            </List>
+            <List>
+                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemIcon>
+                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
             </List>
         </div>
     );
