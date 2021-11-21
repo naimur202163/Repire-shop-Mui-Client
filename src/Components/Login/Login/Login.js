@@ -5,7 +5,7 @@ import useAuth from './../../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError } = useAuth()
+    const { user, loginUser, isLoading, authError, signInwithGoogle } = useAuth()
 
     const location = useLocation()
     const navigate = useNavigate();
@@ -19,6 +19,11 @@ const Login = () => {
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
+    }
+
+    // handle Googole SIgn in
+    const handleGoogleSignin = () => {
+        signInwithGoogle(location, navigate)
     }
     return (
         <Box>
@@ -54,7 +59,8 @@ const Login = () => {
                             {user?.email && <Alert severity="success">Login successfully!</Alert>}
                             {authError && <Alert severity="error">{authError}</Alert>}
                         </form>
-
+                        <p>------------------------------------------------------------------------</p>
+                        <Button onClick={handleGoogleSignin} variant="contained">Google Sign In</Button>
 
                     </Grid>
                     <Grid item md={6} xs={12}>
