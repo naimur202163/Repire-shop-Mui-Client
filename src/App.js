@@ -29,10 +29,9 @@ function App() {
             <Route path={`/dashboard/makeAdmin`} element={
               <MakeAnAdmin></MakeAnAdmin>
             }></Route>
-
-            {/* <Route path={`/dashboard/addProduct`} element={
+            <Route path={`/dashboard/addProduct`} element={
               <AddProduct />
-            }></Route> */}
+            }></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/register" element={<Registar />}></Route>
             <Route path="/about" element={<About></About>}></Route>

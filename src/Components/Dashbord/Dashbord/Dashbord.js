@@ -37,9 +37,9 @@ function Dashbord(props) {
                 <ListItem>
                     <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}><Button color="inherit">Make Admin</Button></NavLink></Typography>
                 </ListItem>
-                {/* <ListItem>
+                <ListItem>
                     <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}><Button color="inherit">Add Products</Button></NavLink></Typography>
-                </ListItem> */}
+                </ListItem>
 
 
 
