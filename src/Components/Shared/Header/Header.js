@@ -31,7 +31,7 @@ const Header = () => {
                     <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/home">
                         <Button color="inherit">Home</Button>
                     </NavLink>
-                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/order">
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/userorder">
                         <Button color="inherit">Orders</Button>
                     </NavLink>
                     <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashbord">

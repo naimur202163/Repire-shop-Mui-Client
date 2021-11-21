@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Box from '@mui/material/Box';
 import width from '@mui/system';
+import Header from './../Components/Shared/Header/Header';
 
 const Order = () => {
     const { orderId } = useParams();
@@ -16,11 +17,25 @@ const Order = () => {
 
     const order = orders.find(items => items._id === orderId);
     console.log(order)
+    // Sendeing Data to the Server
 
+
+
+    const handleProduct = () => {
+
+        fetch("http://localhost:5000/userProducts", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(order),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+    }
 
     return (
-        <Box sx={{ my: 3 }}>
-            <Container>
+        <Box >
+            <Header></Header>
+            <Container sx={{ my: 3 }}>
                 <Grid container spacing={0}>
                     <Grid item md={2} xs={12}>
                         Hi
@@ -47,7 +62,7 @@ const Order = () => {
                                     <Typography variant="subtitle1" sx={{ my: 3 }}>
                                         -The point of using Lorem Ipsum is that’s true
                                     </Typography>
-                                    <Typography sx={{ my: 1 }} variant="h5"><Button variant="contained">parches Now</Button></Typography>
+                                    <Typography sx={{ my: 1 }} variant="h5"><Button onClick={handleProduct} variant="contained">parches Now</Button></Typography>
                                 </Grid>
                                 <Grid md={6} xs={12}>
                                     <img sx={{ ms: 2 }} style={{ width: "100%", height: "88%" }} src="https://template.hasthemes.com/elecron/elecron/assets/images/service/service-details02.jpg" alt="" />

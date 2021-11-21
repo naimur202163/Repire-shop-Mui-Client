@@ -16,7 +16,7 @@ const AddProduct = () => {
         formData.append('discription', discription);
         formData.append('image', image);
 
-        fetch('https://stark-caverns-04377.herokuapp.com/doctors', {
+        fetch('http://localhost:5000/addProducts', {
             method: 'POST',
             body: formData
         })
