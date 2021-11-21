@@ -73,27 +73,31 @@ const Order = () => {
                                     {/* <Typography sx={{ my: 1 }} variant="h5"><Button onClick={handleProduct} variant="contained">parches Now</Button></Typography> */}
                                 </Grid>
                                 <Grid md={6} xs={12}>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
 
-                                        <input style={{ width: "50%", height: '30px' }} type="email" defaultValue={user.email} {...register("email")} />
-                                        <br />
-                                        <br />
-                                        <input placeholder="Enter Your Name " style={{ width: "50%", height: '30px' }} type="name" {...register("name", { required: true })} />
-                                        <br />
-                                        {errors.exampleRequired && <span>This field is required</span>}
-                                        <br />
-                                        <input type="number" placeholder="Enter Your Phone Number" style={{ width: "50%", height: '30px' }} type="number" {...register("phone", { required: true })} />
-                                        <br />
-                                        <br />
-                                        <input type="text" placeholder="Enter Your Address" style={{ width: "50%", height: '30px' }} type="text" {...register("phone", { required: true })} />
-                                        <br />
-                                        <br />
+                                    <Typography sx={{ textAlign: 'center', my: 6 }}>
+                                        <form sx={{ mt: 5 }} onSubmit={handleSubmit(onSubmit)}>
 
-                                        <Button type="submit" variant="contained" style={{ width: "50%" }} >
-                                            Pls Submit
-                                        </Button>
-                                        {/* <button onClick={handeleUser}>H</button> */}
-                                    </form>
+                                            <input style={{ width: "50%", height: '30px' }} type="email" defaultValue={user.email} {...register("email")} />
+                                            <br />
+                                            <br />
+                                            <input placeholder="Enter Your Name " style={{ width: "50%", height: '30px' }} type="name" {...register("name", { required: true })} />
+                                            <br />
+                                            {errors.exampleRequired && <span>This field is required</span>}
+                                            <br />
+                                            <input type="number" placeholder="Enter Your Phone Number" style={{ width: "50%", height: '30px' }} type="number" {...register("phone", { required: true })} />
+                                            <br />
+                                            <br />
+                                            <input type="text" placeholder="Enter Your Address" style={{ width: "50%", height: '30px' }} type="text" {...register("phone", { required: true })} />
+                                            <br />
+                                            <br />
+
+                                            <Button type="submit" variant="contained" style={{ width: "50%" }} >
+                                                Pls Submit
+                                            </Button>
+                                            {/* <button onClick={handeleUser}>H</button> */}
+                                        </form>
+                                    </Typography>
+
                                 </Grid>
 
                             </Grid>
