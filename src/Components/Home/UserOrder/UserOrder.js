@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
+import useAuth from '../../../hooks/useAuth';
 
 const UserOrder = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
     const { user } = useAuth()
     useEffect(() => {
-        const url = `http://localhost:5000/userProducts?email=${user.email}`
+        const url = `http://localhost:5000/userProduct?email=${user.email}`
         fetch(url)
             .then(res => res.json())
-            .then(result => setProducts(result))
+            .then(result => console.log(result))
 
 
     }, [isDelete]);
 
 
-    console.log(products)
 
+    // Delet 
     const handleDeleteProduct = (id) => {
         console.log(id);
 
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://pure-garden-91979.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
             headers: { "Content-type": "application/json" },
         })
@@ -36,10 +37,13 @@ const UserOrder = () => {
     };
 
 
+
+
+
     return (
         <div>
             <h2>This is User Order</h2>
-            <Button onClick={() => handleDeleteProduct(product._id)} >This is Delet</Button>
+            {/* <Button onClick={() => handleDeleteProduct(product._id)} >This is Delet</Button> */}
         </div>
     );
 };

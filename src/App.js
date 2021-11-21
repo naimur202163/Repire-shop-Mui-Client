@@ -14,6 +14,7 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import MakeAnAdmin from "./Components/Dashbord/MakeAnAdmin/MakeAnAdmin";
 import AddProduct from "./Components/Dashbord/AddProduct/AddProduct";
+import UserOrder from "./Components/Home/UserOrder/UserOrder";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <AddProduct />
             }></Route>
             <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/userorder" element={<UserOrder></UserOrder>}></Route>
             <Route path="/register" element={<Registar />}></Route>
             <Route path="/about" element={<About></About>}></Route>
           </Routes>

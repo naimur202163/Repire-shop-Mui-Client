@@ -1,11 +1,14 @@
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Container, Grid, Typography, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Box from '@mui/material/Box';
 import width from '@mui/system';
 import Header from './../Components/Shared/Header/Header';
-
+import useAuth from './../hooks/useAuth';
+import { useForm } from "react-hook-form";
 const Order = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { user } = useAuth()
     const { orderId } = useParams();
     const [orders, setOrders] = useState([])
     useEffect(() => {
@@ -16,17 +19,22 @@ const Order = () => {
     }, []);
 
     const order = orders.find(items => items._id === orderId);
-    console.log(order)
+    // console.log(order)
     // Sendeing Data to the Server
 
+    // console.log(itmes)
+    // console.log(order, user.email)
 
+    const onSubmit = (data) => {
+        const itme1 = order;
+        const item = { ...itme1, ...data };
+        console.log(item)
 
-    const handleProduct = () => {
 
         fetch("http://localhost:5000/userProducts", {
             method: "POST",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(order),
+            body: JSON.stringify(item),
         })
             .then((res) => res.json())
             .then((result) => console.log(result));
@@ -62,10 +70,30 @@ const Order = () => {
                                     <Typography variant="subtitle1" sx={{ my: 3 }}>
                                         -The point of using Lorem Ipsum is that’s true
                                     </Typography>
-                                    <Typography sx={{ my: 1 }} variant="h5"><Button onClick={handleProduct} variant="contained">parches Now</Button></Typography>
+                                    {/* <Typography sx={{ my: 1 }} variant="h5"><Button onClick={handleProduct} variant="contained">parches Now</Button></Typography> */}
                                 </Grid>
                                 <Grid md={6} xs={12}>
-                                    <img sx={{ ms: 2 }} style={{ width: "100%", height: "88%" }} src="https://template.hasthemes.com/elecron/elecron/assets/images/service/service-details02.jpg" alt="" />
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+
+                                        <input style={{ width: "50%", height: '30px' }} type="email" defaultValue={user.email} {...register("email")} />
+                                        <br />
+                                        <br />
+                                        <input placeholder="Enter Your Name " style={{ width: "50%", height: '30px' }} type="name" {...register("name", { required: true })} />
+                                        <br />
+                                        {errors.exampleRequired && <span>This field is required</span>}
+                                        <br />
+                                        <input type="number" placeholder="Enter Your Phone Number" style={{ width: "50%", height: '30px' }} type="number" {...register("phone", { required: true })} />
+                                        <br />
+                                        <br />
+                                        <input type="text" placeholder="Enter Your Address" style={{ width: "50%", height: '30px' }} type="text" {...register("phone", { required: true })} />
+                                        <br />
+                                        <br />
+
+                                        <Button type="submit" variant="contained" style={{ width: "50%" }} >
+                                            Pls Submit
+                                        </Button>
+                                        {/* <button onClick={handeleUser}>H</button> */}
+                                    </form>
                                 </Grid>
 
                             </Grid>
