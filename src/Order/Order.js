@@ -6,6 +6,7 @@ import width from '@mui/system';
 import Header from './../Components/Shared/Header/Header';
 import useAuth from './../hooks/useAuth';
 import { useForm } from "react-hook-form";
+import { NavLink } from 'react-router-dom';
 const Order = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useAuth()
@@ -114,3 +115,24 @@ const Order = () => {
 };
 
 export default Order;
+
+// When Send Email Only
+
+// const { email } = useData()
+
+// state[details, setDeatils] = useState({})
+
+
+// useEffect(() => {
+//     fetch('usl/${id}').then().then(data => {
+
+//         const p = { ...data, email }
+
+//         setDeatils(p)
+
+//     }
+
+
+//     )
+
+// }, [id, email])

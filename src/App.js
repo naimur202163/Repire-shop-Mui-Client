@@ -15,6 +15,7 @@ import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import MakeAnAdmin from "./Components/Dashbord/MakeAnAdmin/MakeAnAdmin";
 import AddProduct from "./Components/Dashbord/AddProduct/AddProduct";
 import UserOrder from "./Components/Home/UserOrder/UserOrder";
+import Payment from "./Components/Dashbord/Payment/Payment";
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
             <Route path={`/dashboard/addProduct`} element={
               <AddProduct />
             }></Route>
+            <Route path={`/payment/:paymentId`} element={
+              <Payment></Payment>
+            }></Route>
+
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/userorder" element={<UserOrder></UserOrder>}></Route>
             <Route path="/register" element={<Registar />}></Route>

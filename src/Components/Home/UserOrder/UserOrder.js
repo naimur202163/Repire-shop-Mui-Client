@@ -7,10 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Header from './../../Shared/Header/Header';
+import { NavLink } from 'react-router-dom';
 const UserOrder = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
-    const { user } = useAuth()
+    const { user } = useAuth();
     useEffect(() => {
         const url = `http://localhost:5000/userProduct?email=${user.email}`
         fetch(url)
@@ -58,7 +59,7 @@ const UserOrder = () => {
                         products.map(product =>
                             <Grid md={6} xs={12}>
                                 <Card sx={{
-                                    maxWidth: '96% '
+                                    maxWidth: '96% ', my: 2
                                 }}>
 
 
@@ -86,8 +87,11 @@ const UserOrder = () => {
                                                 </Typography>
                                             </CardContent>
                                             <CardActions>
-                                                <Button size="small">Share</Button>
-                                                <Button onClick={() => handleDeleteProduct(product._id)} size="small">Learn More</Button>
+                                                <NavLink to={`/payment/${product._id}`}>
+                                                    <Button size="small">Payment</Button>
+                                                </NavLink>
+
+                                                <Button onClick={() => handleDeleteProduct(product._id)} size="small">Remove</Button>
                                             </CardActions>
                                         </Grid>
 
