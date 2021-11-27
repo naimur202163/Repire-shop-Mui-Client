@@ -23,8 +23,8 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    setSuccess('Doctor added successfully')
-                    console.log('doctor added successfully')
+                    setSuccess('product added successfully')
+                    console.log('product added successfully')
                 }
             })
             .catch(error => {
@@ -34,7 +34,7 @@ const AddProduct = () => {
     return (
         <div>
             <Container sx={{ alignContent: 'center' }}>
-                <Typography sx={{ textAlign: 'center' }} variant="h4">Add A Docotor</Typography>
+                <Typography sx={{ textAlign: 'center' }} variant="h4">Add A Product</Typography>
                 <form sx={{ ml: 10 }} onSubmit={handleSubmit}>
                     <TextField
                         sx={{ width: '50%' }}

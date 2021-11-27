@@ -39,6 +39,23 @@ function Dashbord(props) {
 
             <List>
 
+                <List>
+                    <ListItem>
+                        <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
+                            activeClassName="main-nav-active"
+                            style={{ textDecoration: 'none' }} to={`/home`}>home</NavLink></Typography>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
+                            activeClassName="main-nav-active"
+                            style={{ textDecoration: 'none' }} to={`/about`}>About</NavLink></Typography>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
+                            activeClassName="main-nav-active"
+                            style={{ textDecoration: 'none' }} to={`/userorder`}>User Orders</NavLink></Typography>
+                    </ListItem>
+                </List>
 
 
                 {
@@ -58,14 +75,11 @@ function Dashbord(props) {
                                 style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}>Add Products</NavLink></Typography>
                         </ListItem>
                     </List>
+
                 }
 
-
-
-
-
             </List>
-            <List>
+            {/* <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>
@@ -74,7 +88,7 @@ function Dashbord(props) {
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </div>
     );
 
@@ -143,10 +157,10 @@ function Dashbord(props) {
             >
                 <Toolbar />
                 <Typography paragraph>
-                    wew
+
                 </Typography>
                 <Typography paragraph>
-                    d
+                            
                 </Typography>
             </Box>
         </Box>
