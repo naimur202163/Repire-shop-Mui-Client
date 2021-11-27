@@ -34,8 +34,8 @@ const MakeAnAdmin = () => {
     return (
         <Box>
 
-            <Container>
-                <h2>Make an Admin</h2>
+            <Container sx={{ ml: 10 }}>
+                <h2 sx={{ textAlign: 'center' }} variant="h5">Make an Admin</h2>
                 <form onSubmit={handleAdminSubmit}>
                     <TextField
                         sx={{ width: '50%' }}

@@ -17,6 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
+import './Deasshbord.css'
 
 const drawerWidth = 240;
 
@@ -35,10 +36,14 @@ function Dashbord(props) {
             <List>
 
                 <ListItem>
-                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}><Button color="inherit">Make Admin</Button></NavLink></Typography>
+                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography variant="subtitle1" sx={{ ml: 1, }}>  <NavLink
+                        className="main-nav"
+                        activeClassName="main-nav-active" style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}>Make Admin</NavLink></Typography>
                 </ListItem>
                 <ListItem>
-                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}><Button color="inherit">Add Products</Button></NavLink></Typography>
+                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
+                        activeClassName="main-nav-active"
+                        style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}>Add Products</NavLink></Typography>
                 </ListItem>
 
 
@@ -80,7 +85,7 @@ function Dashbord(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        Wellcome to Dash Bord
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -122,10 +127,10 @@ function Dashbord(props) {
             >
                 <Toolbar />
                 <Typography paragraph>
-                    Coont
+                    wew
                 </Typography>
                 <Typography paragraph>
-                    content Here
+                    d
                 </Typography>
             </Box>
         </Box>

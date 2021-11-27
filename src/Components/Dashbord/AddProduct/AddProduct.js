@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, TextField } from '@mui/material';
+import { Button, Input, TextField, Container, Typography } from '@mui/material';
 const AddProduct = () => {
     const [name, setName] = useState('');
     const [discription, setdiscription] = useState('');
@@ -33,36 +33,39 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <h3>Add A Doctor</h3>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    sx={{ width: '50%' }}
-                    label="Name"
-                    required
-                    onChange={e => setName(e.target.value)}
-                    variant="standard" />
-                <br />
-                <TextField
-                    sx={{ width: '50%' }}
-                    label="discription"
-                    type="text"
-                    required
-                    onChange={e => setdiscription(e.target.value)}
-                    variant="standard" />
-                <br />
-                <Input
-                    accept="image/*"
-                    type="file"
-                    onChange={e => setImage(e.target.files[0])}
-                />
-                <br />
-                <Button variant="contained" type="submit">
-                    Add Doctor
-                </Button>
-            </form>
-            {success && <p style={{ color: 'green' }}>{success}</p>}
+            <Container sx={{ alignContent: 'center' }}>
+                <Typography sx={{ textAlign: 'center' }} variant="h4">Add A Docotor</Typography>
+                <form sx={{ ml: 10 }} onSubmit={handleSubmit}>
+                    <TextField
+                        sx={{ width: '50%' }}
+                        label="Name"
+                        required
+                        onChange={e => setName(e.target.value)}
+                        variant="standard" />
+                    <br />
+                    <TextField
+                        sx={{ width: '50%' }}
+                        label="discription"
+                        type="text"
+                        required
+                        onChange={e => setdiscription(e.target.value)}
+                        variant="standard" />
+                    <br />
+                    <Input
+                        accept="image/*"
+                        type="file"
+                        onChange={e => setImage(e.target.files[0])}
+                    />
+                    <br />
+                    <Button variant="contained" type="submit">
+                        Add Doctor
+                    </Button>
+                </form>
+                {success && <p style={{ color: 'green' }}>{success}</p>}
+            </Container>
 
-        </div>
+
+        </div >
     );
 };
 
