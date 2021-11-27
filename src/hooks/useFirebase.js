@@ -9,7 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-
+    const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider()
     // Register User
@@ -102,6 +102,14 @@ const useFirebase = () => {
         })
     }
 
+    // Admin Pannel
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
     return {
         user,
         isLoading,
@@ -109,7 +117,9 @@ const useFirebase = () => {
         registerUser,
         loginUser,
         logout,
-        signInwithGoogle
+        signInwithGoogle,
+        admin
+
 
     }
 };

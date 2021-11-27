@@ -18,10 +18,14 @@ import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './Deasshbord.css'
+import useFirebase from './../../../hooks/useFirebase';
+import useAuth from './../../../hooks/useAuth';
 
 const drawerWidth = 240;
 
 function Dashbord(props) {
+    const { admin } = useAuth();
+    console.log(admin)
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -35,16 +39,28 @@ function Dashbord(props) {
 
             <List>
 
-                <ListItem>
-                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography variant="subtitle1" sx={{ ml: 1, }}>  <NavLink
-                        className="main-nav"
-                        activeClassName="main-nav-active" style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}>Make Admin</NavLink></Typography>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
-                        activeClassName="main-nav-active"
-                        style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}>Add Products</NavLink></Typography>
-                </ListItem>
+
+
+                {
+                    admin &&
+                    <List>
+                        <ListItem>
+                            <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography variant="subtitle1" sx={{ ml: 1, }}>  <NavLink
+                                className="main-nav"
+                                activeClassName="main-nav-active" style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}>Make Admin</NavLink>
+
+
+                            </Typography>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon >  <InboxIcon></InboxIcon></ListItemIcon> <Typography sx={{ ml: 1 }}>  <NavLink className="main-nav"
+                                activeClassName="main-nav-active"
+                                style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}>Add Products</NavLink></Typography>
+                        </ListItem>
+                    </List>
+                }
+
+
 
 
 
