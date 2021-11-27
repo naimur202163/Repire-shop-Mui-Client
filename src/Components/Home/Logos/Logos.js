@@ -1,13 +1,35 @@
 import React from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
+const Logoes = [
+    {
+        img: "https://santhemes.com/tidytheme/fizxila/images/client-2.png"
+    },
+    {
+        img: "https://santhemes.com/tidytheme/fizxila/images/client-4.png"
+    },
+    {
+        img: "https://santhemes.com/tidytheme/fizxila/images/client-1.png"
+    },
+    {
+        img: "https://santhemes.com/tidytheme/fizxila/images/client-3.png"
+    }
+]
 
 const Logos = () => {
     return (
-        <Box>
+        <Box sx={{ my: 5 }}>
             <Grid container spacing={2}>
-                <Grid xs={8}>
-                    <h2>This Itme</h2>
-                </Grid>
+
+                {
+                    Logoes.map(items =>
+                        <Grid md={3} xs={12}>
+                            <Typography sx={{ textAlign: "center" }}>
+                                <img src={items.img} />
+                            </Typography>
+                        </Grid>
+                    )
+                }
+
 
             </Grid>
         </Box>
