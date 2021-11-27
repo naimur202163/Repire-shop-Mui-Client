@@ -27,27 +27,43 @@ const works = [
 const OurWork = () => {
     return (
         <Box>
-            <Container>
-                <Typography sx={{ textAlign: 'center' }} variant="h5">How Does We Work</Typography>
+            <Container sx={{ my: 4 }}>
+                <Typography sx={{ textAlign: 'center' }} variant="h4">How Does We Work</Typography>
+                <Typography sx={{ textAlign: 'center' }} variant="subtitle2">Service features tended no do thoughts <br />me on dissuade scarcely own are pretty spring suffer old denote his proposal speedily amr striking am now.</Typography>
+
+                <Container>
+                    <Grid container spacing={1}>
 
 
-                <Grid container spacing={2}>
+                        {
+                            works?.map(itme =>
+
+                                <Grid md={3} xs={12}>
+                                    <Box sx={{ my: 7 }}>
+                                        <Typography sx={{ textAlign: 'center' }}  >
+                                            <div sx={{}} className="img_proces">
+                                                <img className="img_proces" src={itme.img} alt="" />
+                                            </div>
+                                        </Typography>
+
+                                        <Typography sx={{ textAlign: 'center' }} variant="subtitle1">
+                                            {itme.name}
+                                        </Typography>
+                                        <Typography sx={{ textAlign: 'center' }} variant="subtitle1">
+                                            {itme.text}
+                                        </Typography>
+
+                                    </Box>
+                                </Grid>
 
 
-                    {
-                        works?.map(itme =>
-                            <Grid md={3} xs={12}>
-                                <Box>
-                                    <div className="img_proces">
-                                        <img src={itme.img} alt="" />
-                                    </div>
-                                </Box>
-                            </Grid>
-                        )
-                    }
+                            )
+                        }
 
 
-                </Grid>
+                    </Grid>
+                </Container>
+
 
             </Container>
         </Box >

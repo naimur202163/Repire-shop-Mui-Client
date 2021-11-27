@@ -4,3 +4,6 @@
         border: 1px solid #ACC42E;
     
 }
+img {
+    max-width: 100%;
+}
