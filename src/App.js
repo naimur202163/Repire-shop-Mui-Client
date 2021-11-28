@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import Dashbord from "./Components/Dashbord/Dashbord/Dashbord";
 import Login from "./Components/Login/Login/Login";
-import About from "./Components/About/About";
 import Home from "./Components/Home/Home/Home";
 import Order from "./Order/Order";
 import Registar from './Components/Login/Registar/Registar';
@@ -16,6 +15,7 @@ import MakeAnAdmin from "./Components/Dashbord/MakeAnAdmin/MakeAnAdmin";
 import AddProduct from "./Components/Dashbord/AddProduct/AddProduct";
 import UserOrder from "./Components/Home/UserOrder/UserOrder";
 import Payment from "./Components/Dashbord/Payment/Payment";
+import About from './Components/About/About/About';
 
 function App() {
   return (
