@@ -1,9 +1,12 @@
 import React from 'react';
+import Aboutbanner from '../About-banner/About-banner';
+import AboutMidBanner from './../AboutMidBanner/AboutMidBanner';
 
 const About = () => {
     return (
         <div>
-            <h3>THis is ABout</h3>
+            <Aboutbanner></Aboutbanner>
+            <AboutMidBanner></AboutMidBanner>
         </div>
     );
 };
