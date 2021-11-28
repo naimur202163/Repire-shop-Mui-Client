@@ -7,6 +7,7 @@ import Header from './../Components/Shared/Header/Header';
 import useAuth from './../hooks/useAuth';
 import { useForm } from "react-hook-form";
 import { NavLink } from 'react-router-dom';
+import Footer from './../Components/Shared/Footer/Footer';
 const Order = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useAuth()
@@ -110,6 +111,7 @@ const Order = () => {
 
                 </Grid>
             </Container>
+            <Footer />
         </Box >
     );
 };

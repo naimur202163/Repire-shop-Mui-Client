@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Header from './../../Shared/Header/Header';
 import { NavLink } from 'react-router-dom';
+import Footer from '../../Shared/Footer/Footer';
 const UserOrder = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
@@ -109,7 +110,7 @@ const UserOrder = () => {
 
             </Container >
 
-
+            <Footer />
         </Box >
     );
 };
