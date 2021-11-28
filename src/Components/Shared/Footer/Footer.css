@@ -1,0 +1,13 @@
+.footer{
+    width: 100%;
+    padding: 96px 0 0 0;
+    color: #fff;
+    background-color: #2b343b;
+}
+
+ :hover .ichon-hover {
+       color:#ACC42E;
+}
+.arrow{
+    color:#ACC42E;
+}
