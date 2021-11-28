@@ -26,13 +26,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/home" element={<Home />}></Route>
-            <Route path="/order/:orderId" element={<Order />}></Route>
-            <Route path="/dashbord" element={<Dashbord />}></Route>
+            <Route path="/order/:orderId" element={<PrivateRoute><Order /></PrivateRoute>}></Route>
+            <Route path="/dashbord" element={<PrivateRoute> <Dashbord /></PrivateRoute>}></Route>
             <Route path={`/dashboard/makeAdmin`} element={
               <MakeAnAdmin></MakeAnAdmin>
             }></Route>
-            <Route path={`/dashboard/addProduct`} element={
-              <AddProduct />
+            <Route path={`/dashboard/addProduct`} element={<AddProduct />
             }></Route>
             <Route path={`/payment/:paymentId`} element={
               <Payment></Payment>

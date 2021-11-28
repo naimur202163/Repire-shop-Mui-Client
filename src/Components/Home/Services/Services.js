@@ -21,7 +21,7 @@ const Services = () => {
     // Geting Data From Server
     return (
         <Box style={{ backgroundColor: '#F6F8FF ' }}>
-            <h2>Products{products.length}</h2>
+
             <Container>
                 <Box sx={{ my: 3 }} >
                     <Typography sx={{ textAlign: "center", my: 3 }}>ELECTRONICS SERVICES</Typography>
