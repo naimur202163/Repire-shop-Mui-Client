@@ -16,12 +16,14 @@ import AddProduct from "./Components/Dashbord/AddProduct/AddProduct";
 import UserOrder from "./Components/Home/UserOrder/UserOrder";
 import Payment from "./Components/Dashbord/Payment/Payment";
 import About from './Components/About/About/About';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   return (
     <div className="App">
 
       <AuthProvider>
+        <CssBaseline />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>

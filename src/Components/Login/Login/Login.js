@@ -3,9 +3,11 @@ import { Box, Container, Grid, TextField, Typography, CircularProgress, Alert } 
 import { Button } from '@mui/material';
 import useAuth from './../../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import useFirebase from './../../../../../../../jobtask/src/hooks/useFirebase';
+
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError, signInwithGoogle } = useAuth()
+    const { user, loginUser, isLoading, authError, signInwithGoogle } = useFirebase()
 
     const location = useLocation()
     const navigate = useNavigate();
